@@ -4,12 +4,9 @@ plugins {
     id 'com.android.library' version '7.4.2' apply false
     id 'org.jetbrains.kotlin.android' version '1.8.0' apply false
     id 'org.jetbrains.kotlin.jvm' version '1.8.0' apply false
-    id "nl.neotech.plugin.rootcoverage" version "1.6.0"
     id "com.github.sherter.google-java-format" version "0.9" apply true
     id "io.github.takahirom.roborazzi" version "1.0.0-rc-2" apply false
 }
 apply from: "${rootDir}/gradle/version.gradle"
 apply from: "${rootDir}/gradle/google_java_format.gradle"
-//It has to be always enabled for multiple flavor.
-apply from: "${rootDir}/gradle/root_code_coverage.gradle"
 
