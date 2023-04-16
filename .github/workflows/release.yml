@@ -22,4 +22,4 @@ jobs:
       - name: step_1_assembleProdDebug
         run: ./gradlew :app:assembleDebug
       - name: step_2_generateCoverageReport
-        run: ./gradlew rootCoverageReport -Penable_android_test=false -Penable_unit_test=true -Pcoverage
+        run: ./gradlew :app:testDebug
