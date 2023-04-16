@@ -1,0 +1,24 @@
+name: Android Pull Request Sanity Check
+on:
+  pull_request:
+    branches:
+      - main
+    paths-ignore:
+      - '**.md'
+jobs:
+  build:
+    runs-on: macos-latest
+    steps:
+      - name: step_0_checkout
+        uses: actions/checkout@v3.3.0
+      - name: step_0_gradle_build_action
+        uses: gradle/gradle-build-action@v2.4.2
+      - name: step_0_setup_java__11
+        uses: actions/setup-java@v3.11.0
+        with:
+          distribution: 'zulu'
+          java-version: '11'
+      - name: step_1_assembleProdDebug
+        run: ./gradlew :app:assembleDebug
+      - name: step_2_generateCoverageReport
+        run: ./gradlew rootCoverageReport -Penable_android_test=false -Penable_unit_test=true -Pcoverage

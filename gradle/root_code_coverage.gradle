@@ -1,0 +1,47 @@
+apply plugin: 'nl.neotech.plugin.rootcoverage'
+rootCoverage {
+    buildVariant 'debug'
+    // Class exclude patterns
+    excludes = [
+        '**/R.class',
+        '**/R$*.class',
+        '**/BuildConfig.*',
+        '**/Manifest*.*',
+        '**/*Test*.*',
+        'android/**/*.*',
+
+        //Butterknife hack for multi-modules poroject
+        '**/R2.class',
+        '**/R2$*.class',
+        '**/*_ViewBinding*.*',
+        '**/**Scope**',
+        '**/**Objects**',
+        'com/github/**/*.*',
+        'com/bumptech/**/*.*',
+        //Dagger 2
+        '**/*Dagger*Component*.*',
+        '**/*Module.*',
+        '**/*Module$*.*',
+        '**/*Module_Proxy.*',
+        '**/*MembersInjector*.*',
+        '**/*_Factory*.*',
+        '**/*Provide*Factory*.*',
+
+        //Autofactory
+        '**/*Factory.*',
+
+        //Classes I intentionally don't want to test
+//        '**/*Activity.*',
+//        '**/App.class',
+//        '**/*Adapter.*',
+//        '**/*ViewHolder*.*',
+//        '**/api/response/*.*',
+//        '**/data/model/*.*',
+    ]
+    executeUnitTests "${enable_unit_test}".toBoolean()
+    executeAndroidTests "${enable_android_test}".toBoolean()
+    generateXml true
+    includeUnitTestResults true
+    includeAndroidTestResults "${enable_android_test}".toBoolean()
+    includeNoLocationClasses true
+}

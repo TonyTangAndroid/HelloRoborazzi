@@ -1,0 +1,69 @@
+apply from: "${rootDir}/gradle/jvm.gradle"
+
+android {
+
+    compileSdkVersion projectVersion.compileSdk
+    defaultConfig {
+        minSdkVersion projectVersion.minSdk
+        targetSdkVersion projectVersion.compileSdk
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_1_8
+        targetCompatibility = JavaVersion.VERSION_1_8
+    }
+
+    buildTypes {
+        debug {
+            enableUnitTestCoverage "${enable_unit_test}".toBoolean()
+            enableAndroidTestCoverage "${enable_android_test}".toBoolean()
+        }
+    }
+
+    testOptions {
+        animationsDisabled true
+        unitTests {
+            includeAndroidResources = true
+        }
+    }
+}
+
+dependencies {
+
+    api "com.uber.rib:rib-base:${rib}"
+    api "com.uber.rib:rib-android:${rib}"
+    annotationProcessor "com.uber.rib:rib-compiler-test:${rib}"
+
+    api 'androidx.core:core-ktx:1.10.0'
+    api 'androidx.appcompat:appcompat:1.6.1'
+    implementation 'com.google.android.material:material:1.8.0'
+    implementation 'androidx.annotation:annotation:1.6.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+    implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.6.1'
+    implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.1'
+    implementation 'com.uber.autodispose:autodispose-android-archcomponents:1.4.0'
+    implementation 'com.jakewharton.rxbinding3:rxbinding-core:3.1.0'
+    implementation 'com.jakewharton.rxbinding3:rxbinding-appcompat:3.1.0'
+    implementation 'com.jakewharton.rxbinding3:rxbinding-drawerlayout:3.1.0'
+    implementation 'com.jakewharton.rxbinding3:rxbinding-recyclerview:3.1.0'
+    implementation 'com.jakewharton.rxbinding3:rxbinding-slidingpanelayout:3.1.0'
+    implementation 'com.jakewharton.rxbinding3:rxbinding-swiperefreshlayout:3.1.0'
+    implementation 'com.jakewharton.rxbinding3:rxbinding-viewpager2:3.1.0'
+    
+    testImplementation 'androidx.test:core:1.5.0'
+    testImplementation 'androidx.test:runner:1.5.2'
+    testImplementation 'androidx.test.ext:junit:1.1.5'
+    testImplementation 'androidx.test:rules:1.5.0'
+    testImplementation 'org.robolectric:robolectric:4.10'
+    testImplementation 'androidx.test.espresso:espresso-core:3.5.1'
+    testImplementation 'androidx.test.espresso:espresso-intents:3.5.1'
+    androidTestImplementation "com.google.truth:truth:${truth}"
+    androidTestImplementation 'androidx.test:core:1.5.0'
+    androidTestImplementation 'androidx.test:runner:1.5.2'
+    androidTestImplementation 'androidx.test:rules:1.5.0'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.5'
+}
+
+
