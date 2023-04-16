@@ -2,11 +2,10 @@
 plugins {
     id 'com.android.application' version '7.4.2' apply false
     id 'com.android.library' version '7.4.2' apply false
-    id 'org.jetbrains.kotlin.android' version '1.8.0' apply false
+    id 'org.jetbrains.kotlin.android' version '1.8.20' apply false
     id 'org.jetbrains.kotlin.jvm' version '1.8.0' apply false
     id "com.github.sherter.google-java-format" version "0.9" apply true
-    id "io.github.takahirom.roborazzi" version "1.0.0-rc-2" apply false
+    id "io.github.takahirom.roborazzi" version "1.0.0-rc-3" apply false
 }
-apply from: "${rootDir}/gradle/version.gradle"
 apply from: "${rootDir}/gradle/google_java_format.gradle"
 
