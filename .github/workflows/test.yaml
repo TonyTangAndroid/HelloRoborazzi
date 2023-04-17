@@ -19,7 +19,6 @@ jobs:
 
       - name: test
         run: |
-          ./gradlew roborazzi-gradle-plugin:build --stacktrace
           ./gradlew app:recordRoborazziDebug --stacktrace
       - uses: actions/upload-artifact@v3
         with:

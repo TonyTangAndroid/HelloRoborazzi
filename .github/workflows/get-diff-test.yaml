@@ -25,7 +25,6 @@ jobs:
           branch: main
       - name: test
         run: |
-          ./gradlew roborazzi-gradle-plugin:build --stacktrace
           ./gradlew app:verifyRoborazziDebug --stacktrace
       - uses: actions/upload-artifact@v3
         with:
