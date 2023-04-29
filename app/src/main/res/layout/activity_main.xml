@@ -2,6 +2,6 @@
   android:id="@+id/textview_first"
   android:layout_width="match_parent"
   android:layout_height="match_parent"
-  android:gravity="center"
+  android:gravity="bottom"
   style="@style/TextAppearance.Material3.HeadlineLarge"
   android:text="@string/hello_roborazzi" />
